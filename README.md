@@ -1,6 +1,8 @@
 # BlockRename
 Block and modify renames from anvil!
 
+![изображение](https://user-images.githubusercontent.com/49928332/132254855-0ad457a8-a24f-47db-af55-6ba4bcffba79.png)
+
 ## Download
 You can download binary from [releases page](https://github.com/cofob/BlockRename/releases).
 
