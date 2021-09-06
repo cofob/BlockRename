@@ -1,7 +1,7 @@
-# BlockRename
+# ![Logo](https://user-images.githubusercontent.com/49928332/132255432-b84c3399-e488-43fa-8ccf-605ae146965f.png) BlockRename ![Logo](https://user-images.githubusercontent.com/49928332/132255432-b84c3399-e488-43fa-8ccf-605ae146965f.png)
 Block and modify renames from anvil!
 
-![изображение](https://user-images.githubusercontent.com/49928332/132254855-0ad457a8-a24f-47db-af55-6ba4bcffba79.png)
+![Plugin in work](https://user-images.githubusercontent.com/49928332/132254855-0ad457a8-a24f-47db-af55-6ba4bcffba79.png)
 
 ## Download
 You can download binary from [releases page](https://github.com/cofob/BlockRename/releases).
