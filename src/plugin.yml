@@ -1,0 +1,10 @@
+name: BlockRename
+main: com.cofob.BlockRename.BlockRename
+version: 0.0.1
+description: Block anvil renames
+depend: []
+authors: [cofob]
+api-version: 1.13
+commands:
+  blockrename:
+    usage: /blockrename - reloads config
