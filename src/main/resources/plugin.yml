@@ -1,8 +1,8 @@
 name: BlockRename
-main: com.cofob.BlockRename.BlockRename
+main: ru.cofob.BlockRename.BlockRename
 version: 0.0.2
 description: Block anvil renames
-depend: []
+depend: [Vault]
 authors: [cofob]
 api-version: 1.13
 commands:
