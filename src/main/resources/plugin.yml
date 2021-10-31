@@ -1,6 +1,6 @@
 name: BlockRename
 main: com.cofob.BlockRename.BlockRename
-version: 0.0.1
+version: 0.0.2
 description: Block anvil renames
 depend: []
 authors: [cofob]
