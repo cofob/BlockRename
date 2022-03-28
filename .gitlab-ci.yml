@@ -1,0 +1,7 @@
+image: maven
+
+build:
+  script: "mvn install -B"
+  artifacts:
+    paths:
+      - target/*.jar
