@@ -1,13 +1,16 @@
 package ru.cofob.BlockRename.listener;
 
-import ru.cofob.BlockRename.BlockRename;
 import net.milkbowl.vault.permission.Permission;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.PrepareAnvilEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import ru.cofob.BlockRename.BlockRename;
+import ru.cofob.BlockRename.utils.ChatUtils;
 
 import static org.bukkit.Bukkit.getPlayer;
 import static org.bukkit.Bukkit.getServer;
@@ -25,37 +28,43 @@ public class AnvilRename {
 
     private static class EventsListener implements Listener {
         public EventsListener() {
-            System.out.println("§a[BlockRename] registered strings: "+BlockRename.names);
+            Bukkit.getLogger().info("§a[BlockRename] registered strings: "+BlockRename.names);
         }
 
         @EventHandler
         public void onPrepareAnvil(PrepareAnvilEvent e) {
             ItemStack result = e.getResult();
-            assert result != null;
+            if (result == null) return;
             ItemMeta meta = result.getItemMeta();
-            assert meta != null;
+            if (meta == null) return;
 
             Permission perms = BlockRename.getPermissions();
             Player player = getPlayer(e.getViewers().get(0).getName());
+            if (player == null) return;
 
-            String n = meta.getDisplayName().replace("&0", "").replace("&1", "")
-                    .replace("&2", "").replace("&3", "").replace("&4", "")
-                    .replace("&5", "").replace("&6", "").replace("&7", "")
-                    .replace("&8", "").replace("&9", "").replace("&a", "")
-                    .replace("&b", "").replace("&c", "").replace("&d", "")
-                    .replace("&e", "").replace("&f", "").replace("&g", "")
-                    .replace("&k", "").replace("&l", "").replace("&m", "")
-                    .replace("&n", "").replace("&o", "").replace("&r", "");
-
+            String n = ChatColor.stripColor(meta.getDisplayName());
 
             if (BlockRename.names.contains(n.toLowerCase()) && !perms.has(player, "cofob.blockrename.bypass")) {
-                assert player != null;
-                System.out.println("§a[BlockRename] §cBlocked rename to '"+ meta.getDisplayName()+"', by player '"+player.getName()+"'!");
+                ItemStack original = e.getInventory().getItem(0);
+                if (original != null) {
+                    ItemMeta original_meta = original.getItemMeta();
+                    if (original_meta != null) {
+                        String name = original_meta.getDisplayName();
+                        if (BlockRename.names.contains(ChatColor.stripColor(name).toLowerCase())) {
+                            Bukkit.getLogger().info("§a[BlockRename] §aRename '"+
+                                    meta.getDisplayName()+"', by player '"+player.getName()+"' already renamed!");
+                            return;
+                        }
+                    }
+                }
+
+                Bukkit.getLogger().info("§a[BlockRename] §cBlocked rename to '"+
+                        meta.getDisplayName()+"', by player '"+player.getName()+"'!");
                 meta.setDisplayName(BlockRename.blocked_text);
             }
 
             if (perms.has(player, "cofob.blockrename.colored")) {
-                meta.setDisplayName(meta.getDisplayName().replace("&", "§"));
+                meta.setDisplayName(ChatUtils.translate(meta.getDisplayName()));
             }
 
             result.setItemMeta(meta);

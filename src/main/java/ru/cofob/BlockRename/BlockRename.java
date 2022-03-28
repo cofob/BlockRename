@@ -1,5 +1,6 @@
 package ru.cofob.BlockRename;
 
+import org.bukkit.Bukkit;
 import ru.cofob.BlockRename.listener.AnvilRename;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -34,7 +35,7 @@ public class BlockRename extends JavaPlugin {
 
 //        defining variables
         version = "v0.0.1";
-        System.out.println("§a[BlockRename] §rLoaded §6"+version+"§r!");
+        Bukkit.getLogger().info("§a[BlockRename] §rLoaded §6"+version+"§r!");
         new AnvilRename(this).register();
     }
 
@@ -72,7 +73,7 @@ public class BlockRename extends JavaPlugin {
         if(cmd.getName().equalsIgnoreCase("blockrename") && perms.has(player, "cofob.blockrename.reload")) {
             setupConfig();
             s.sendMessage("§a[BlockRename] §rReloaded §6"+version+"§r!");
-            System.out.println("§a[BlockRename] §rReloaded §6"+version+"§r!");
+            Bukkit.getLogger().info("§a[BlockRename] §rReloaded §6"+version+"§r!");
             return true;
         } else {
             s.sendMessage(Objects.requireNonNull(config.getString("no_permission")));
