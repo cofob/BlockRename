@@ -1,5 +1,12 @@
 image: maven
 
+cache:
+  paths:
+    - .m2/repository
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+
 build:
   script: "mvn install -B"
   artifacts:
