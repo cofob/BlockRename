@@ -1,8 +1,6 @@
 pipeline:
   build:
     image: maven
-    environment:
-      - MAVEN_OPTS="-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
     commands:
       - mvn install -B
   mk-car:
