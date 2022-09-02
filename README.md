@@ -1,7 +1,7 @@
-# ![Logo](https://git.cofob.ru/cofob/BlockRename/raw/branch/master/docs/images/logo.png) BlockRename ![Logo](https://git.cofob.ru/cofob/BlockRename/raw/branch/master/docs/images/logo.png)
+# ![Logo](/docs/images/logo.png) BlockRename ![Logo](/docs/images/logo.png)
 Block and modify renames from anvil.
 
-![Plugin in work](https://git.cofob.ru/cofob/BlockRename/raw/branch/master/docs/images/demonstration.png)
+![Plugin in work](/docs/images/demonstration.png)
 
 ## Dependencies
   - Vault
